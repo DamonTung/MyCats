@@ -54,7 +54,7 @@ security = Security(app, user_datastore)
 #@app.before_first_request
 def create_user():
     db.create_all()
-    user_datastore.create_user(email='604515820@qq.com', password='P@ssw0rd*#00')
+    user_datastore.create_user(email='myself_mail_address', password='P@ssw0rd*#00321')
     db.session.commit()
 
 @app.route('/')
