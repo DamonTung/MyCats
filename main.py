@@ -21,7 +21,7 @@ app = Flask(__name__)
 app.config['DEBUG'] = False
 app.config['SECRET_KEY'] = 'super-secret'
 app.config['SECURITY_PASSWORD_SALT'] = 'super_secret_salt'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir,'test.db')
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir,'tmp/test.db')
 # Create database connection object
 db = SQLAlchemy(app)
 # Define models
@@ -51,10 +51,10 @@ class User(db.Model, UserMixin):
 user_datastore = SQLAlchemyUserDatastore(db, User, Role)
 security = Security(app, user_datastore)
 # Create a user to test with
-#@app.before_first_request
+@app.before_first_request
 def create_user():
     db.create_all()
-    user_datastore.create_user(email='myself_mail_address', password='P@ssw0rd*#00321')
+    user_datastore.create_user(email='MYSELF_MAIL_ADDRESS', password='P@ssw0rd*#321')
     db.session.commit()
 
 @app.route('/')
