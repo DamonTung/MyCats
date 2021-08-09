@@ -1,7 +1,7 @@
 Flask_Security==3.0.0
 Flask==1.1.1
 opencv_python==4.1.1.26
-pywin32==225
+pywin32==301
 Flask_SQLAlchemy==2.0
 greenlet==0.4.15
 picamera==1.13
